@@ -1,0 +1,45 @@
+
+  
+  .discussion .title {
+    position: absolute;
+    z-index: 1;
+    bottom: 8px;
+    left: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  .discussion .main-scoop {
+    padding-right: 10px;
+  }
+  
+  .add-button {
+    margin-right: 15px;
+    border-radius: 15px;
+  }
+  
+  .discussion .panel-heading {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    right: 0px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  .discussion .panel-heading:hover {
+    cursor: grab;
+  }
+  
+  .discussion.dragging .discussion.dragging * {
+    cursor: move !important;
+  }
+  
+  .discussion-priority {
+    border-radius: 50% !important;
+    padding: 8px 13px;
+  }
