@@ -1,5 +1,62 @@
-.card-body {
-    .card-title {
-        margin-top: 10px;
+.card {
+    width: 23.3%;
+    float: left;
+    margin-right: 12.5px;
+    margin-left: 12.5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    &:nth-child(4n + 1) {
+        margin-left: 0px;
+    }
+    &:nth-child(4n) {
+        margin-right: 0px;
+    }
+}
+
+// .list-content {
+//     display: inline-block;
+// }
+.scoop {
+    .category-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .card-body {
+        position: relative;
+        padding: 10px;
+        .card-title {
+            margin-top: 10px;
+        }
+    }
+    .card-text {
+        min-height: 24px;
+    }
+    .card-top {
+        position: relative;
+        overflow: hidden;
+        height: 0;
+        padding-bottom: 56.25%;
+        display: block;
+        .card-img-top {
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            width: 100%;
+            top: 50%;
+            position: absolute;
+        }
+        .icon-album {
+            position: absolute;
+            width: 15px;
+            right: 8px;
+            top: 8px;
+        }
     }
 }

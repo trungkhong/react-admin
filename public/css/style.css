@@ -49,11 +49,17 @@ hr {
 button:focus {
   outline: 0 !important; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0px;
   font-weight: 700; }
 
-strong, b {
+strong,
+b {
   font-weight: 700 !important; }
 
 .center-block {
@@ -66,6 +72,12 @@ strong, b {
 
 .no-padding {
   padding: 0 !important; }
+
+.no-padding-l {
+  padding-left: 0 !important; }
+
+.no-padding-r {
+  padding-right: 0 !important; }
 
 .no-margin {
   margin: 0px !important; }
@@ -1015,6 +1027,25 @@ Top bar styles
     padding: 0; }
 
 /**light top bar***/
+.search-in-content {
+  margin-top: 0px; }
+  .search-in-content i {
+    color: #4d4d4d; }
+  .search-in-content .form-control {
+    border: 1px solid #f5f5f5;
+    color: #333;
+    background-color: #fff; }
+    .search-in-content .form-control::-webkit-input-placeholder {
+      color: #4d4d4d; }
+    .search-in-content .form-control:-moz-placeholder {
+      /* Firefox 18- */
+      color: #4d4d4d; }
+    .search-in-content .form-control::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #4d4d4d; }
+    .search-in-content .form-control:-ms-input-placeholder {
+      color: #4d4d4d; }
+
 .top-bar.light-top-bar {
   background: #fff;
   border-bottom: 1px solid #ddd; }
@@ -1957,7 +1988,7 @@ Misc pages styles like 404, login, register etc.
   height: 100%;
   display: table;
   position: relative;
-  background-color: #999;
+  background-color: #bfbfbf;
   background-repeat: repeat;
   padding: 20px 0; }
 
@@ -1973,14 +2004,19 @@ Misc pages styles like 404, login, register etc.
   -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  padding: 15px; }
-  .misc-box .img-circle {
-    border: 2px solid rgba(0, 0, 0, 0.1); }
-  .misc-box .checkbox {
-    margin: 0px;
-    padding-top: 0px; }
-  .misc-box h4 {
-    line-height: 26px; }
+  padding: 15px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px; }
+
+.misc-box .img-circle {
+  border: 2px solid rgba(0, 0, 0, 0.1); }
+
+.misc-box .checkbox {
+  margin: 0px;
+  padding-top: 0px; }
+
+.misc-box h4 {
+  line-height: 26px; }
 
 .misc-footer {
   color: #fff;
@@ -1988,8 +2024,13 @@ Misc pages styles like 404, login, register etc.
   padding: 20px 15px; }
 
 .misc-header {
-  background: #000;
-  padding: 15px; }
+  background: #444;
+  padding: 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px; }
+
+.misc-header img {
+  max-width: 180px; }
 
 /*
 Page blog styles
@@ -2982,13 +3023,68 @@ Welcome page scss
     font-size: 12px;
     margin-top: 10px; }
 
-.card-body .card-title {
-  margin-top: 10px; }
+.card {
+  width: 23.3%;
+  float: left;
+  margin-right: 12.5px;
+  margin-left: 12.5px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1 0 0%;
+  flex: 1 0 0%;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .card:nth-child(4n + 1) {
+    margin-left: 0px; }
+  .card:nth-child(4n) {
+    margin-right: 0px; }
 
-#app, .App, .container-react {
-  display: table;
-  height: 100%;
-  width: 100%; }
+.scoop .category-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px; }
+
+.scoop .card-body {
+  position: relative;
+  padding: 10px; }
+  .scoop .card-body .card-title {
+    margin-top: 10px; }
+
+.scoop .card-text {
+  min-height: 24px; }
+
+.scoop .card-top {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 56.25%;
+  display: block; }
+  .scoop .card-top .card-img-top {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    width: 100%;
+    top: 50%;
+    position: absolute; }
+  .scoop .card-top .icon-album {
+    position: absolute;
+    width: 15px;
+    right: 8px;
+    top: 8px; }
+
+html,
+body {
+  height: 100%; }
+
+.mt-5 {
+  margin-top: 5px; }
+
+#app,
+.App,
+.container-react {
+  height: 100%; }
 
 .footer {
   height: 40px;
@@ -3044,6 +3140,12 @@ Welcome page scss
 .btn-filters {
   padding-right: 15px; }
 
+a:hover {
+  cursor: pointer; }
+
+img:hover {
+  opacity: .95; }
+
 .search-form-custom {
   display: block;
   float: left;
@@ -3084,3 +3186,89 @@ span.top-ranking {
 .list-scoop .scoop {
   margin-bottom: 15px;
   margin-top: 15px; }
+
+.scoop .card-title {
+  max-width: 85%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.list-content .empty {
+  padding-top: 50px; }
+
+.scoop-list-btns a {
+  margin-right: 5px; }
+  .scoop-list-btns a:focus, .scoop-list-btns a:hover {
+    background-color: #78c6e0;
+    border-color: #78c6e0; }
+
+.scoop-list-btns .active {
+  background-color: #78c6e0;
+  border-color: #78c6e0; }
+
+.ReactModal__Overlay,
+.ReactModal__Body--open {
+  z-index: 1000; }
+
+.ReactModal__Overlay--after-open {
+  background-color: rgba(93, 93, 93, 0.75) !important; }
+
+.ReactModal__Content {
+  width: 60% !important;
+  position: absolute;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  min-height: 650px;
+  overflow: hidden !important;
+  padding: 15px !important; }
+  .ReactModal__Content .close {
+    top: 5px;
+    right: 10px;
+    position: absolute; }
+
+.scoop-in-modal .card-top-modal {
+  background-color: #e4e4e4; }
+  .scoop-in-modal .card-top-modal .card-img-top {
+    height: auto;
+    width: auto;
+    max-width: 350px;
+    margin: 0px auto; }
+
+.scoop-in-modal .landscape {
+  margin-bottom: 15px; }
+  .scoop-in-modal .landscape .card-img-top {
+    height: auto;
+    width: auto;
+    max-width: 93%;
+    margin: 0px auto; }
+
+.scoop-in-modal .card-body-modal .avatar {
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  border-radius: 100%;
+  color: #fafafa;
+  display: flex;
+  flex: 0 0 60px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative; }
+
+.scoop-in-modal .card-body-modal .img-circle {
+  width: 100%; }
+
+.scoop-in-modal .card-body-modal .user-info {
+  margin-left: 62px;
+  padding: 7px; }
+  .scoop-in-modal .card-body-modal .user-info h4 {
+    margin-bottom: 0px; }
+
+.edit-scoop-btn {
+  margin-right: 3px; }
+
+.edit-scoop textarea {
+  height: 80px;
+  margin-bottom: 5px; }

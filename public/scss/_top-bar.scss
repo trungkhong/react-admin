@@ -138,6 +138,32 @@ Top bar styles
 
 
 /**light top bar***/
+.search-in-content{
+    margin-top: 0px;
+    i{
+        color:#4d4d4d;
+    }
+    .form-control{
+        border: 1px solid #f5f5f5;
+        color:#333;
+        background-color:#fff;
+        &::-webkit-input-placeholder {
+            color: #4d4d4d;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            color: #4d4d4d;  
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+            color: #4d4d4d;  
+        }
+
+        &:-ms-input-placeholder {  
+            color: #4d4d4d;  
+        }
+    }
+}
 .top-bar.light-top-bar{
     background: #fff;
     border-bottom:1px solid #ddd;

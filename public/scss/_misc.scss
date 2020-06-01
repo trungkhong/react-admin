@@ -2,42 +2,60 @@
 Misc pages styles like 404, login, register etc.
 */
 
-.misc-wrapper{
+.misc-wrapper {
     width: 100%;
     height: 100%;
     display: table;
     position: relative;
-    background-color: $bg-grey;
+    background-color: #bfbfbf;
     background-repeat: repeat;
     padding: 20px 0;
 }
-.misc-content{
+
+.misc-content {
     display: table-cell;
     vertical-align: middle;
     width: 100%;
     position: relative;
 }
-.misc-box{
+
+.misc-box {
     background-color: #fff;
-    @include box-shadow(0 0 20px rgba(0,0,0,0.3));
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     padding: 15px;
-    .img-circle{
-        border: 2px solid rgba(0,0,0,0.1);
-    }
-    .checkbox{
-           margin: 0px;
-    padding-top: 0px;
-    }
-    h4{
-        line-height: 26px;
-    }
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
-.misc-footer{
+
+.misc-box .img-circle {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.misc-box .checkbox {
+    margin: 0px;
+    padding-top: 0px;
+}
+
+.misc-box h4 {
+    line-height: 26px;
+}
+
+.misc-footer {
     color: #fff;
     opacity: 0.8;
     padding: 20px 15px;
 }
-.misc-header{
-    background: #000;
+
+.misc-header {
+    background: #444;
     padding: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.misc-header img {
+    max-width: 180px;
 }
