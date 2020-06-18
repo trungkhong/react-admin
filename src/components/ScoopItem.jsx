@@ -34,6 +34,19 @@ class ScoopItem extends Component {
                     </span>
     }
 
+    //check edit button
+    let editButton = ''
+    var currentUser = localStorage.getItem("user");
+    currentUser = JSON.parse(currentUser);
+    
+    console.log("scoop.user_id", scoop.user_id)
+    console.log("currentUser.id", currentUser.id)
+    if(scoop.user_id == currentUser.id){
+      editButton = <a onClick={() => this.props.openAlertModal('edit_scoop')} className="btn btn-primary waves-effect waves-light edit-scoop-btn">
+        <em className="icon-pencil" />
+      </a>
+    }
+
     if(scoop.category != null && scoop.category != ""){
       categoryIconURL = <img src={scoop.category.icon_url} className="img-responsive xs" width={40} alt="Image" />
     }
@@ -72,9 +85,7 @@ class ScoopItem extends Component {
               </ul>
               <p className="card-text">{scoop.caption}</p>
               <div>
-                <a onClick={() => this.props.openAlertModal('edit_scoop')} className="btn btn-primary waves-effect waves-light edit-scoop-btn">
-                  <em className="icon-pencil" />
-                </a>
+                {editButton}
                 <a data-scoop={scoop.id} onClick={() => this.props.openAlertModal('scoop')} title="Up to Top of Scoop" className="btn btn-success waves-effect waves-light">
                   <em className="icon-info" />
                 </a>

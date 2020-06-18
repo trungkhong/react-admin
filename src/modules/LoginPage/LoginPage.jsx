@@ -9,7 +9,6 @@ import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3'
 class LoginPage extends Component {
     constructor(props) {
         super(props);
-        
         this.props.dispatch(userActions.logout());
 
         this.state = {
@@ -22,7 +21,7 @@ class LoginPage extends Component {
 
         //this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
         this.verifyCallback = this.verifyCallback.bind(this);
-    
+        this.onHandleChange = this.onHandleChange.bind(this);    
     }
 
     componentDidMount() {
@@ -57,7 +56,6 @@ class LoginPage extends Component {
 
         this.setState({ submitted: true });
         const { username, password, recaptchaResponse } = this.state;
-
         const { dispatch } = this.props;
 
         // stop here if form is invalid
@@ -65,18 +63,13 @@ class LoginPage extends Component {
             dispatch(userActions.login(username, password, recaptchaResponse));
         }
 
-        // this.setState({ loading: true });
-
-        // userService.login(username, password)
-        //     .then(user => {
-        //         const { from } = this.props.location.state || { from: { pathname: "/" } };
-        //         this.props.history.push(from);
-        //     }, error => this.setState({ error, loading: false }));
     }
 
     render() {
         const { loggingIn, alert } = this.props;
-        const { username, password, submitted} = this.state;
+        console.log("alert.message", alert.message)
+       
+        const { username, password, submitted } = this.state;
         return (
             <div className="misc-wrapper login">
                 <link rel="stylesheet" href="../public/css/login.css"/>

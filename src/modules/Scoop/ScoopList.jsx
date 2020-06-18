@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import ScoopItem from './../../components/ScoopItem.jsx'
-import { getAllScoopsOfUser, actGetAllOfScoops } from "../../actions/scoop.actions";
-import { bindActionCreators } from "redux";
+import { getAllScoopsOfUser, actGetAllOfScoops } from "../../actions/scoop.actions"
+import { bindActionCreators } from "redux"
 import equal from 'fast-deep-equal'
-import apiCaller from './../../utils/apiCaller';
-import Pagination from "./../../components/Pagination.jsx";
+import apiCaller from './../../utils/apiCaller'
+import Pagination from "./../../components/Pagination.jsx"
+import './ScoopList.scss';
 
 class ScoopList extends Component {
 
@@ -19,26 +20,14 @@ class ScoopList extends Component {
     }
 
     handlePageChange(i) {
-      console.log("aaaaa", i)
       this.setState({ activePage: i });
       this.props.getAllScoopsOfUser(i, 0)
-      console.log("this.props.listItems", this.props.listItems)
-      //handleShowScoops(this.props.listItems)
   }
   
 
     render() {
-      //const { listItems, totalRows } = this.props;
       const {scoops, totalRows} = this.props;
-      // console.log("scoops", listItem);
-      //  var scoopsList = scoops.scoops.data
 
-      // var listItems = ""
-      // if(scoopsList){
-      //   listItems = scoopsList.map((scoop) =>
-      //     <ScoopItem scoop={scoop}></ScoopItem>
-      //   );
-      // }
       let content = <div className="empty">
         <div className="empty-box text-center">
           <p className="text-center"><img src="../public/images/empty-scoop.png" width="150" alt="empty scoops"/></p>
@@ -46,7 +35,9 @@ class ScoopList extends Component {
           <p>Only selected users can view your exclusive scoop. Upon successful purchase they can download it to their devices or repost it to their public walls.</p>
         </div>
       </div>;
+
       let paginationComponent = "";
+      
       if(this.props.listItems.length > 0){
         content = this.props.listItems;
         paginationComponent = <Pagination
@@ -77,18 +68,18 @@ class ScoopList extends Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="btn-group scoop-list-btns" role="group">
-                        <a onClick={() => this.props.getAllScoopsOfUser(1, 0)} className="btn btn-primary waves-effect waves-light active">
-                          Posted
-                        </a>
-                        <a className="btn btn-primary waves-effect waves-light" onClick={() => this.props.getAllScoopsOfUser(1, 1)}>
-                          Inbox
-                        </a>
-                        <a title="Up to Top of Scoop" className="btn btn-primary waves-effect waves-light" onClick={() => this.props.getAllScoopsOfUser(1, 2)}>
-                          Sent
-                        </a>
-                        <a className="btn btn-primary waves-effect waves-light" onClick={() => this.props.getAllScoopsOfUser(1, 3)}>
-                          Purchased
-                        </a>
+                  <a onClick={() => this.props.getAllScoopsOfUser(1, 0)} className="btn btn-primary waves-effect waves-light active">
+                    Posted
+                  </a>
+                  <a className="btn btn-primary waves-effect waves-light" onClick={() => this.props.getAllScoopsOfUser(1, 1)}>
+                    Inbox
+                  </a>
+                  <a title="Up to Top of Scoop" className="btn btn-primary waves-effect waves-light" onClick={() => this.props.getAllScoopsOfUser(1, 2)}>
+                    Sent
+                  </a>
+                  <a className="btn btn-primary waves-effect waves-light" onClick={() => this.props.getAllScoopsOfUser(1, 3)}>
+                    Purchased
+                  </a>
                 </div>
                   <div className="search-form search-in-content hidden-xs pull-right">
                     <form>
@@ -101,7 +92,7 @@ class ScoopList extends Component {
                   {alert}
                   {content}
                 </div>
-                {paginationComponent}
+                <div className="pagination-wrap block w-100 text-right">{paginationComponent}</div>
               </div>
             </div>
             <footer className="footer">

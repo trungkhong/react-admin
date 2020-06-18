@@ -14,6 +14,7 @@ import ScoopListContainer from './containers/Scoop/ScoopListContainer.jsx';
 import { CookiesProvider } from 'react-cookie';
 import ModalContainer from './containers/ModalContainer.jsx'
 import { ResetPassword } from './modules/ResetPassword/ResetPassword';
+import { Redirect } from 'react-router';
 
 class App extends Component {
     constructor(props){
@@ -25,24 +26,25 @@ class App extends Component {
         });
     }
 
-    componentDidMount(){
-    }
+    // componentDidMount(){
+    // }
 
     render() {
-        const { isLogging } = this.props;
-        // let userStored = localStorage.getItem('user');
+        const { isLogging } = this.props
+
+        let userStored = localStorage.getItem('user');
         // if(userStored) {
-        //     let userStored = JSON.parse(userStored);
-        //     let jwtToken = userStored.user_token
+        //     userStored = JSON.parse(userStored);
+        //     console.log("userStored:", userStored)
         // }
-        console.log("current state: ", this.props)
+
         var header = (localStorage.getItem('user') && isLogging) ? <Header /> : '';
         var sidebar = (localStorage.getItem('user') && isLogging)  ? <Sidebar /> : '';
         return (
             <div className="App">
                 {header}
                 {sidebar}
-                <Router>
+                <Router history={history}>
                     <div className="container-react">
                         <PrivateRoute exact path="/" component={HomePage} />
                         <Route path="/login" component={LoginPage} />
@@ -57,7 +59,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state){
-    console.log("app state:", state)
     const { alert } = state
     return {
         isLogging: state.authentication,

@@ -24,8 +24,9 @@ function login(username, password, recaptchaResponse) {
                     history.push('/');
                 },
                 error => {
-                    dispatch(failure(error));
-                    dispatch(alertActions.error(error));
+                    console.log("error", error)
+                    dispatch(failure(error.message));
+                    dispatch(alertActions.error(error.message));
                 }
             );
     };
